@@ -17,20 +17,16 @@ const Home: NextPage = () => {
         <meta name="description" content="My Chirp Application" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-slate-400">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             CHIRP App
           </h1>
           <div>
-            {!user.isSignedIn && (
-              <SignInButton className="bg-emerald-400 text-white" />
-            )}
-            {!!user.isSignedIn && (
-              <SignOutButton className="bg-orange-400 text-white" />
-            )}
+            {!user.isSignedIn && <SignInButton />}
+            {!!user.isSignedIn && <SignOutButton />}
           </div>
-          <div>
+          <div className="bg-slate-200 text-white">
             {data?.map((post) => (
               <div key={post.id} className="bg-emerald-400 text-white">
                 {post.content}
